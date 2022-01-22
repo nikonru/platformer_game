@@ -1,19 +1,21 @@
 #include "graphics_manager.h"
-#include <SFML/Graphics.hpp>
 
+
+#include <SFML/Graphics.hpp>
 #include <iostream>
+#include <memory>
  
 graphics_manager::graphics_manager() {
+    manager = std::make_shared<logic_manager>();
 }
+
+
 
 void graphics_manager::main_loop() {
     sf::RenderWindow window(sf::VideoMode(400, 400), "Game!");
     
     sf::Clock clock;
     int frame_counter = 0;
-
-    sf::CircleShape circle(200);
-    circle.setFillColor(sf::Color::Green);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -29,8 +31,11 @@ void graphics_manager::main_loop() {
         }
         frame_counter++;
 
+        std::vector<std::shared_ptr<actor>> actors = manager->get_actors();
+
         window.clear(sf::Color(66, 145, 255)); //light blue
-        window.draw(circle);
+        for (auto a: actors)
+        window.draw(a->get_sprite());
         window.display();  
     }
 }

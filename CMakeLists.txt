@@ -24,6 +24,7 @@ list ( APPEND SRC src/logic/static_actor/static_actor.cpp )
 
 list ( APPEND SRC src/graphics/graphics_manager.cpp )
 
+
 include_directories ( 3rdparty/sfml/include )
 
 add_compile_options("-lsfml-graphics" "-lsfml-window" "-lsfml-system")
