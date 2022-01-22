@@ -8,6 +8,9 @@
 class physics_manager
 {
 public:
+
+    physics_manager( std::vector<std::shared_ptr<actor>> actors, std::vector<std::shared_ptr<static_actor>> static_actors );
+
     void update();
     std::vector<std::shared_ptr<actor>> get_actors();
     std::vector<std::shared_ptr<static_actor>> get_static_actors();

@@ -6,6 +6,7 @@
 class actor
 {
 public:
+    actor();
 
     void on_collision();
 
@@ -14,7 +15,5 @@ public:
     float _speed_x, _speed_y;
     float _acceleration_x, _acceleration_y;
 
-private:
-    std::shared_ptr<physics_manager> _physics_manager;
 };
 

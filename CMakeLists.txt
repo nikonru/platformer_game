@@ -5,6 +5,7 @@ include(CTest)
 enable_testing()
 
 include_directories ( src/logic/actor )
+include_directories ( src/logic/actor/player )
 include_directories ( src/logic/controller )
 include_directories ( src/logic/logic_manager )
 include_directories ( src/logic/physics_manager )

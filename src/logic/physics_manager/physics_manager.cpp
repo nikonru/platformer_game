@@ -1,5 +1,11 @@
 #include "physics_manager.h"
 
+physics_manager::physics_manager( std::vector<std::shared_ptr<actor>> actors, std::vector<std::shared_ptr<static_actor>> static_actors );
+{
+    _actors = actors;
+    _static_actors = static_actors;
+}
+
 void physics_manager::update()
 {
     for( auto& actor: _actors)
@@ -10,7 +16,6 @@ void physics_manager::update()
         actor->_speed_x += actor->_acceleration_x;
         actor->_speed_y += actor->_acceleration_y; 
     }
-
     
     for( auto& static_actor: _static_actors)
     {
