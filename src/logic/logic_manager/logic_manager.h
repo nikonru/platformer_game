@@ -12,8 +12,8 @@ class Logic_manager
 public:
     Logic_manager();
     void update();
-    std::vector<std::shared_ptr<Actor>> get_actors();
-    std::vector<std::shared_ptr<Static_actor>> get_static_actors();
+    std::shared_ptr<Actors_vector> get_actors();
+    std::shared_ptr<Static_actors_vector> get_static_actors();
 
 private:
     std::shared_ptr<Physics_manager> _physics_manager;

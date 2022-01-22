@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <vector>
 
 class Actor
 {
@@ -16,5 +17,10 @@ public:
     float _speed_x, _speed_y;
     float _acceleration_x, _acceleration_y;
 private:
+};
+
+struct Actors_vector
+{
+    std::vector<std::shared_ptr<Actor>> vector;
 };
 
