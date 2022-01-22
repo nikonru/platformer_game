@@ -5,7 +5,7 @@
 
 class graphics_manager {
 private:
-    std::shared_ptr<logic_manager> manager;
+    std::shared_ptr<Logic_manager> manager;
 public:
     graphics_manager();
     void main_loop();

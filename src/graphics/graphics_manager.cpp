@@ -6,7 +6,7 @@
 #include <memory>
  
 graphics_manager::graphics_manager() {
-    manager = std::make_shared<logic_manager>();
+    manager = std::make_shared<Logic_manager>();
 }
 
 
@@ -31,11 +31,11 @@ void graphics_manager::main_loop() {
         }
         frame_counter++;
 
-        std::vector<std::shared_ptr<actor>> actors = manager->get_actors();
+        //auto actors = manager->get_actors();
 
         window.clear(sf::Color(66, 145, 255)); //light blue
-        for (auto a: actors)
-        window.draw(a->get_sprite());
+        //for (auto a: actors)
+        //window.draw(a->get_sprite());
         window.display();  
     }
 }
