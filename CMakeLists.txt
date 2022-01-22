@@ -11,6 +11,8 @@ include_directories ( src/logic/logic_manager )
 include_directories ( src/logic/physics_manager )
 include_directories ( src/logic/static_actor )
 
+include_directories ( src/graphics )
+
 add_executable(game src/main.cpp)
 
 add_subdirectory ("3rdparty/sfml")
