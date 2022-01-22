@@ -31,11 +31,13 @@ void graphics_manager::main_loop() {
         }
         frame_counter++;
 
+        manager->update();
+
         auto actors = manager->get_actors();
 
         window.clear(sf::Color(66, 145, 255)); //light blue
-        //for (auto a: actors)
-        //window.draw(a->get_sprite());
+        for (auto a: actors->vector)
+            window.draw(a->get_sprite());
         window.display();  
     }
 }

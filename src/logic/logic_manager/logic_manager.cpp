@@ -2,10 +2,11 @@
 
 Logic_manager::Logic_manager()
 {
-    std::shared_ptr<Actors_vector> actors;
-    std::shared_ptr<Static_actors_vector> static_actors;
+    std::shared_ptr<Actors_vector> actors = std::make_shared<Actors_vector>();
+    std::shared_ptr<Static_actors_vector> static_actors = std::make_shared<Static_actors_vector>();;
     
-    std::shared_ptr<Actor> player;
+ 
+    auto player = std::make_shared<Actor>();
     _player_controller = std::make_shared<Controller>( player );
 
     actors->vector.push_back( player );
