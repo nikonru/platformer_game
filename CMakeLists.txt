@@ -13,12 +13,18 @@ include_directories ( src/logic/static_actor )
 
 include_directories ( src/graphics )
 
-add_executable(game src/main.cpp)
-
 add_subdirectory ("3rdparty/sfml")
 
-list(APPEND SRC src/main.cpp )
-list(APPEND SRC src/graphics/graphics_manager.cpp )
+list ( APPEND SRC src/main.cpp )
+
+list ( APPEND SRC src/logic/actor/actor.cpp )
+list ( APPEND SRC src/logic/actor/player/player.cpp )
+list ( APPEND SRC src/logic/controller/controller.cpp )
+list ( APPEND SRC src/logic/logic_manager/logic_manager.cpp )
+list ( APPEND SRC src/logic/physics_manager/physics_manager )
+list ( APPEND SRC src/logic/static_actor/static_actor.cpp )
+
+list ( APPEND SRC src/graphics/graphics_manager.cpp )
 
 include_directories ( 3rdparty/sfml/include )
 
