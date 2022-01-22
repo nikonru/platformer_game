@@ -1,6 +1,6 @@
 #pragma once
 
-class static_actor
+class Static_actor
 {
 public:
     int x, y;

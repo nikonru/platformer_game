@@ -5,17 +5,17 @@
 #include <memory>
 #include <vector>
 
-class physics_manager
+class Physics_manager
 {
 public:
 
-    physics_manager( std::vector<std::shared_ptr<actor>> actors, std::vector<std::shared_ptr<static_actor>> static_actors );
+    Physics_manager( std::vector<std::shared_ptr<Actor>> actors, std::vector<std::shared_ptr<Static_actor>> static_actors );
 
     void update();
-    std::vector<std::shared_ptr<actor>> get_actors();
-    std::vector<std::shared_ptr<static_actor>> get_static_actors();
+    std::vector<std::shared_ptr<Actor>> get_actors();
+    std::vector<std::shared_ptr<Static_actor>> get_static_actors();
 
 private:
-    std::vector<std::shared_ptr<actor>> _actors;
-    std::vector<std::shared_ptr<static_actor>> _static_actors;
+    std::vector<std::shared_ptr<Actor>> _actors;
+    std::vector<std::shared_ptr<Static_actor>> _static_actors;
 };

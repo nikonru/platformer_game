@@ -3,16 +3,16 @@
 #include "actor.h"
 #include <memory>
 
-class controller
+class Controller
 {
 public:
-    controller( std::shared_ptr<actor> actor );
+   Controller( std::shared_ptr<Actor> actor );
 
-    void move_right();
-    void move_left();
-    void move_up();
-    void move_down();
+   void move_right();
+   void move_left();
+   void move_up();
+   void move_down();
 
 private:
-    std::shared_ptr<actor> _actor;
+   std::shared_ptr<Actor> _actor;
 };

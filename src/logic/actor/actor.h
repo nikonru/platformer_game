@@ -1,12 +1,11 @@
 #pragma once
 
 #include <memory>
-#include "physics_manager.h"
 
-class actor
+class Actor
 {
 public:
-    actor();
+    Actor();
 
     void on_collision();
 

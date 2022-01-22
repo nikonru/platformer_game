@@ -1,6 +1,6 @@
 #include "actor.h"
 
-actor::actor()
+Actor::Actor()
 {
     //todo
 }
