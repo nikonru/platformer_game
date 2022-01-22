@@ -1,7 +1,8 @@
 #include <iostream>
+#include "graphics_manager.h"
 
 int main()
 {
-    std::cout << "Hello, world" << std::endl;
+    graphics_manager graphics;
     return 0;
 }
