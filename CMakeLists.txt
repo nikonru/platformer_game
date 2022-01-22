@@ -13,6 +13,17 @@ include_directories ( src/logic/static_actor )
 
 add_executable(game src/main.cpp)
 
+add_subdirectory ("3rdparty/sfml")
+
+list(APPEND SRC src/main.cpp )
+list(APPEND SRC src/graphics/graphics_manager.cpp )
+
+include_directories ( 3rdparty/sfml/include )
+
+add_compile_options("-lsfml-graphics" "-lsfml-window" "-lsfml-system")
+
+add_executable(game ${SRC})
+target_link_libraries(game sfml-graphics sfml-audio)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)

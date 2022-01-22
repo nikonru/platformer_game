@@ -1,8 +1,9 @@
 #include <iostream>
-#include "logic_manager.h"
+#include "graphics_manager.h"
 
 int main()
 {
-    std::cout << "Hello, world" << std::endl;
+    graphics_manager graphics;
+    graphics.main_loop();
     return 0;
 }
