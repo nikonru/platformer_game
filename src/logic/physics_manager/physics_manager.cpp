@@ -8,27 +8,19 @@ Physics_manager::Physics_manager( std::shared_ptr<Actors_vector> actors, std::sh
 
 void Physics_manager::update()
 {
-   for( auto& actor: _actors->vector)
+   for( auto& actor: _actors->vector )
    {
-       actor->set_x(actor->_x + actor->_speed_x);
-       actor->set_y(actor->_y + actor->_speed_y);
+       actor->move_x( actor->get_speed_x() );
+       actor->move_y( actor->get_speed_y() );
 
-       actor->_speed_x += actor->_acceleration_x;
-       actor->_speed_y += actor->_acceleration_y; 
+       actor->add_speed_x( actor->get_acceleration_x() );
+       actor->add_speed_y( actor->get_acceleration_y() );
+
+       actor->set_acceleration_y( 5 );
    }
     
    for( auto& static_actor: _static_actors->vector)
    {
         //todo
    }
-}
-
-std::shared_ptr<Actors_vector> Physics_manager::get_actors()
-{
-    return _actors;
-}
-
-std::shared_ptr<Static_actors_vector> Physics_manager::get_static_actors()
-{
-    return _static_actors;
 }

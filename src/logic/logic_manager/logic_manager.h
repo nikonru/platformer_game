@@ -6,6 +6,7 @@
 #include "controller.h"
 #include <memory>
 #include <vector>
+#include <ctime>
 
 class Logic_manager 
 {
@@ -20,4 +21,9 @@ private:
     std::vector<std::shared_ptr<Controller>> _controllers;
     std::shared_ptr<Controller> _player_controller;
     std::shared_ptr<Actor> _player_actor;
+    
+    std::shared_ptr<Actors_vector> _actors;
+    std::shared_ptr<Static_actors_vector> _static_actors;
+
+    std::time_t _last_time_update;
 };
