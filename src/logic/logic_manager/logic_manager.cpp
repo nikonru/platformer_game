@@ -1,6 +1,6 @@
 #include "logic_manager.h"
 
-Logic_manager::Logic_manager()
+Logic_manager::Logic_manager() 
 {
     _last_time_update = std::time(nullptr);
 
@@ -8,7 +8,7 @@ Logic_manager::Logic_manager()
     _static_actors = std::make_shared<Static_actors_vector>();
 
     auto player = std::make_shared<Actor>();
-    _player_controller = Controller( player );
+    _player_controller.connect_to_actor( player );
 
     _actors->vector.push_back( player );
 }

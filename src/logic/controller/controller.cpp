@@ -1,6 +1,6 @@
 #include "controller.h"
 
-Controller::Controller( std::shared_ptr<Actor>& actor )
+void Controller::connect_to_actor( std::shared_ptr<Actor>& actor )
 {
     _actor = actor;
 }
