@@ -4,18 +4,13 @@ Logic_manager::Logic_manager()
 {
     _last_time_update = std::time(nullptr);
 
-    auto actors = std::make_shared<Actors_vector>();
-    auto static_actors = std::make_shared<Static_actors_vector>();
-    
+    _actors = std::make_shared<Actors_vector>();
+    _static_actors = std::make_shared<Static_actors_vector>();
+
     auto player = std::make_shared<Actor>();
-    _player_controller = std::make_shared<Controller>( player );
+    _player_controller = Controller( player );
 
-    actors->vector.push_back( player );
-
-    _actors = actors;
-    _static_actors = static_actors;
-
-    _physics_manager = std::make_shared<Physics_manager>( _actors, _static_actors);
+    _actors->vector.push_back( player );
 }
 
 void Logic_manager::update()
@@ -24,7 +19,7 @@ void Logic_manager::update()
     auto current_time = std::time(nullptr);
     if( current_time - _last_time_update > (1/600) )
     {
-        _physics_manager->update();
+        _physics_manager.update( _actors, _static_actors );
         _last_time_update = current_time;
     }
     
