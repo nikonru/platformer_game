@@ -12,11 +12,11 @@ public:
     void on_collision();
     sf::RectangleShape get_sprite();
     
-    void set_x(int x);
-    void set_y(int y);
+    void set_x(float x);
+    void set_y(float y);
 
-    void move_x(int x);
-    void move_y(int y);
+    void move_x(float x);
+    void move_y(float y);
 
     void set_speed_x(float x);
     void set_speed_y(float y);
@@ -43,7 +43,7 @@ private:
     
     void update_sprite();
 
-    int _x, _y;
+    float _x, _y;
 
     float _speed_x, _speed_y;
     float _acceleration_x, _acceleration_y;

@@ -5,7 +5,7 @@ Actor::Actor()
     _x = 100;
     _y = 100;
     _speed_x = 5;
-    _acceleration_x = 5;
+    _acceleration_x = 56;
     _speed_y  = _acceleration_y = 0;
 
     sprite.setFillColor(sf::Color::Green);
@@ -19,22 +19,22 @@ sf::RectangleShape Actor::get_sprite()
     return sprite;
 }
 
-void Actor::set_x(int x) {
+void Actor::set_x(float x) {
     _x = x;
     update_sprite();
 }
 
-void Actor::set_y(int y) {
+void Actor::set_y(float y) {
     _y = y;
     update_sprite();
 }
 
-void Actor::move_x(int x) {
+void Actor::move_x(float x) {
     _x += x;
     update_sprite();
 }
 
-void Actor::move_y(int y) {
+void Actor::move_y(float y) {
     _y += y;
     update_sprite();
 }
