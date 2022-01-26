@@ -24,6 +24,9 @@ void Game_clock::stop()
 
 void Game_clock::toggle()
 {
+    if( _is_stopped )
+        _clock.restart();
+        
     _is_stopped = !_is_stopped;
 }
 
