@@ -4,7 +4,7 @@
 #include <vector>
 #include <ctime>
 
-#include <SFML/Graphics.hpp>
+#include "game_clock.h"
 
 #include "physics_manager.h"
 #include "static_actor.h"
@@ -21,7 +21,7 @@ public:
 
 private:
     Physics_manager _physics_manager;
-    sf::Clock _clock;
+    Game_clock _clock;
 
     std::vector<std::shared_ptr<Controller>> _controllers;
     Controller _player_controller;

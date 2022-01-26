@@ -1,11 +1,15 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(game VERSION 0.1.0)
 
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
+set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
+
 include(CTest)
 enable_testing()
 
 include_directories ( src/logic/actor )
 include_directories ( src/logic/controller )
+include_directories ( src/logic/game_clock )
 include_directories ( src/logic/logic_manager )
 include_directories ( src/logic/physics_manager )
 include_directories ( src/logic/static_actor )
@@ -18,6 +22,7 @@ list ( APPEND SRC src/main.cpp )
 
 list ( APPEND SRC src/logic/actor/actor.cpp )
 list ( APPEND SRC src/logic/controller/controller.cpp )
+list ( APPEND SRC src/logic/game_clock/game_clock.cpp )
 list ( APPEND SRC src/logic/logic_manager/logic_manager.cpp )
 list ( APPEND SRC src/logic/physics_manager/physics_manager.cpp )
 list ( APPEND SRC src/logic/static_actor/static_actor.cpp )
