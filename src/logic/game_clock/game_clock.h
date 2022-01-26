@@ -11,6 +11,7 @@ public:
 
     void start();
     void stop();
+    void toggle();
 
 private:
 

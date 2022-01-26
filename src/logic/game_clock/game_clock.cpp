@@ -22,6 +22,11 @@ void Game_clock::stop()
     _is_stopped = true;
 }
 
+void Game_clock::toggle()
+{
+    _is_stopped = !_is_stopped;
+}
+
 void Game_clock::update_time()
 {
     if( !_is_stopped )
