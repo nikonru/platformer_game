@@ -4,9 +4,6 @@ project(game VERSION 0.1.0)
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
 set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
-include(CTest)
-enable_testing()
-
 include_directories ( src/logic/actor )
 include_directories ( src/logic/controller )
 include_directories ( src/logic/game_clock )
