@@ -1,8 +1,9 @@
 #pragma once
 
-#include "graphics_manager.h"
+#include "input_manager_observer.h"
 
 #include <memory>
+#include <vector>
 #include <SFML/Graphics.hpp>
 
 enum Input_axis {
@@ -22,15 +23,21 @@ enum Input_button {
 class Input_manager
 {
 private:
-    std::shared_ptr<sf::RenderWindow> _window;
-
     static bool _buttons[INPUT_BUTTON_COUNT];
     static float _axises[INPUT_AXIS_COUNT];
 
     static void keyboard_callback(sf::Event e);
 
+    void on_keyboard_event( sf::Event e );
+
+    void notify_observers( sf::Event e );
+
+    void add_observer( std::shared_ptr<input_manager_observer> observer );
+
+    std::vector<std::shared_ptr<input_manager_observer>> _observers;
+
 public:
-    Input_manager(Graphics_manager *gm);
+    // Input_manager(Graphics_manager *gm);
     /**
      * Get axis state.
      * @param axis the axis for which the state needs to be returned.

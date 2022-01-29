@@ -41,8 +41,8 @@ void Graphics_manager::processing_events() {
     sf::Event event;
     while (_main_window->pollEvent(event)) {
 
-        for (event_callback cb :_subscribers_to_events[event.type]) {
-           cb(event);     
+        for (event_callback& subcriber :_subscribers_to_events[event.type]) {
+            _input_manager.on_keyboard_event( event );
         }
 
         if (event.type == sf::Event::Closed) {
