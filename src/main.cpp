@@ -7,7 +7,7 @@ int main()
 {
     debug_print("Enter\n");
     // TODO add input manager
-    graphics_manager graphics;
+    Graphics_manager graphics;
     graphics.main_loop();
     return 0;
 }
