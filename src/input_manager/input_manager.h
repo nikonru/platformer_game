@@ -28,8 +28,6 @@ private:
 
     static void keyboard_callback(sf::Event e);
 
-    void on_keyboard_event( sf::Event e );
-
     void notify_observers( sf::Event e );
 
     void add_observer( std::shared_ptr<Input_manager_observer> observer );
@@ -50,4 +48,6 @@ public:
      * @return true if button presed, else false.
      */
     bool get_button(Input_button button);
+
+    void on_keyboard_event( sf::Event e );
 };
