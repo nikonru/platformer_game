@@ -11,6 +11,7 @@ include_directories ( src/logic/logic_manager )
 include_directories ( src/logic/physics_manager )
 include_directories ( src/logic/static_actor )
 include_directories ( src/util )
+include_directories ( src/input_manager )
 
 include_directories ( src/graphics )
 include_directories ( src/util )
