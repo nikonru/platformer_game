@@ -3,7 +3,7 @@
 #include "actor.h"
 #include <memory>
 
-class Controller
+class Controller 
 {
 public:
    void attach_to_actor( std::shared_ptr<Actor>& actor );

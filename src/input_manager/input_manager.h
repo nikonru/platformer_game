@@ -30,8 +30,6 @@ private:
 
     void notify_observers( sf::Event e );
 
-    void add_observer( std::shared_ptr<Input_manager_observer> observer );
-
     std::vector<std::shared_ptr<Input_manager_observer>> _observers;
 
 public:
@@ -50,4 +48,6 @@ public:
     bool get_button(Input_button button);
 
     void on_keyboard_event( sf::Event e );
+
+    void add_observer( std::shared_ptr<Input_manager_observer> observer );
 };

@@ -14,8 +14,8 @@ include_directories ( src/util )
 include_directories ( src/input_manager )
 
 include_directories ( src/graphics )
-include_directories ( src/util )
-include_directories ( src/input_manager)
+
+add_subdirectory ("3rdparty/sfml")
 
 list ( APPEND SRC src/main.cpp )
 list ( APPEND SRC src/logic/actor/actor.cpp )
@@ -25,8 +25,9 @@ list ( APPEND SRC src/logic/logic_manager/logic_manager.cpp )
 list ( APPEND SRC src/logic/physics_manager/physics_manager.cpp )
 list ( APPEND SRC src/logic/static_actor/static_actor.cpp )
 list ( APPEND SRC src/graphics/graphics_manager.cpp )
-list ( APPEND SRC src/input_manager/input_manager.cpp )
 list ( APPEND SRC src/input_manager/input_manager_observer.cpp )
+list ( APPEND SRC src/input_manager/input_manager.cpp )
+
 
 include_directories ( 3rdparty/sfml/include )
 

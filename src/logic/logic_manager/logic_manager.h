@@ -10,14 +10,17 @@
 #include "static_actor.h"
 #include "actor.h"
 #include "controller.h"
+#include "input_manager_observer.h"
 
-class Logic_manager 
+class Logic_manager : public Input_manager_observer
 {
 public:
     Logic_manager();
     void update();
     std::shared_ptr<Actors_vector> get_actors();
     std::shared_ptr<Static_actors_vector> get_static_actors();
+
+    void on_keyboard_event( sf::Event e );
 
 private:
     Physics_manager _physics_manager;

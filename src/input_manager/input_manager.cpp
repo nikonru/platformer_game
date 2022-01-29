@@ -2,10 +2,9 @@
 #define DEBUG
 #include "util.h"
 
-// Input_manager::Input_manager(Graphics_manager *gm) 
-// {
-//     gm->set_event_callback(sf::Event::KeyPressed, keyboard_callback);
-// }
+#include <iostream>
+
+using namespace std;
 
 bool Input_manager::get_button(Input_button button) 
 {
@@ -19,7 +18,7 @@ float Input_manager::get_axis(Input_axis axis)
 
 void Input_manager::keyboard_callback(sf::Event e) {
     if (e.key.code == sf::Keyboard::Key::W) {
-        _axises[INPUT_AXIS_X] = 1;
+        //_axises[INPUT_AXIS_X] = 1;
     }
     if (e.key.code == sf::Keyboard::Key::S) {
         // Input_manager::_axises[INPUT_AXIS_X] = -1;
@@ -33,7 +32,7 @@ void Input_manager::on_keyboard_event( sf::Event e )
 
 void Input_manager::notify_observers( sf::Event e )
 {
-    for( auto& observer: _observers )
+    for( auto observer: _observers )
     {
         observer->on_keyboard_event( e );
     }

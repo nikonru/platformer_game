@@ -1,5 +1,8 @@
 #include "logic_manager.h"
 
+#define DEBUG
+#include "util.h"
+
 using namespace std;
 
 Logic_manager::Logic_manager() 
@@ -34,4 +37,9 @@ shared_ptr<Actors_vector> Logic_manager::get_actors()
 shared_ptr<Static_actors_vector> Logic_manager::get_static_actors()
 {
     return _static_actors;
+}
+
+void Logic_manager::on_keyboard_event( sf::Event e )
+{
+    debug_print("log\n");
 }

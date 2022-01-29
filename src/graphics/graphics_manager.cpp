@@ -7,7 +7,10 @@
 #include <memory>
 
 Graphics_manager::Graphics_manager() {
+
     _manager = std::make_shared<Logic_manager>();
+
+    _input_manager.add_observer( _manager );
 }
 
 void Graphics_manager::main_loop() {
@@ -22,7 +25,7 @@ void Graphics_manager::main_loop() {
        
         if (frame_counter == 20) {
             frame_counter = 0;
-            debug_print("FPS: %.2f\n", (20 / clock.restart().asSeconds()));
+            //debug_print("FPS: %.2f\n", (20 / clock.restart().asSeconds()));
         }
         frame_counter++;
 
@@ -39,11 +42,10 @@ void Graphics_manager::main_loop() {
 
 void Graphics_manager::processing_events() {
     sf::Event event;
+
     while (_main_window->pollEvent(event)) {
 
-        for (event_callback& subcriber :_subscribers_to_events[event.type]) {
-            _input_manager.on_keyboard_event( event );
-        }
+        _input_manager.on_keyboard_event( event );
 
         if (event.type == sf::Event::Closed) {
             _main_window->close();
