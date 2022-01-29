@@ -32,9 +32,9 @@ private:
 
     void notify_observers( sf::Event e );
 
-    void add_observer( std::shared_ptr<input_manager_observer> observer );
+    void add_observer( std::shared_ptr<Input_manager_observer> observer );
 
-    std::vector<std::shared_ptr<input_manager_observer>> _observers;
+    std::vector<std::shared_ptr<Input_manager_observer>> _observers;
 
 public:
     // Input_manager(Graphics_manager *gm);

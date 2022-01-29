@@ -1,8 +1,6 @@
 #include "input_manager_observer.h"
 
-class input_manager_observer
+void Input_manager_observer::on_keyboard_event( sf::Event e )
 {
-private:
-    /* data */
-public:
-};
+
+}

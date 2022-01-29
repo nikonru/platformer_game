@@ -1,6 +1,8 @@
 #pragma once
 
-class input_manager_observer
+#include <SFML/Graphics.hpp>
+
+class Input_manager_observer
 {
 private:
     /* data */
