@@ -39,7 +39,7 @@ void Input_manager::notify_observers( sf::Event e )
     }
 }
 
-void Input_manager::add_observer( std::shared_ptr<input_manager_observer> observer )
+void Input_manager::add_observer( std::shared_ptr<Input_manager_observer> observer )
 {
     _observers.push_back( observer );
 }
