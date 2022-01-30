@@ -15,7 +15,10 @@ Logic_manager::Logic_manager()
     auto player = make_shared<Actor>();
     _player_controller.attach_to_actor( player );
 
+    auto block = make_shared<Static_actor>();
+
     _actors->vector.push_back( player );
+    _static_actors->vector.push_back( block );
 
     _clock.start();
 }
@@ -43,34 +46,43 @@ void Logic_manager::on_keyboard_event( sf::Event e )
 {
     debug_print("log\n");
 
-
-    if( e.type == sf::Event::KeyPressed )
+    switch( e.type )
     {
-        debug_print("%d", int(e.key.code));
-        switch(e.key.code)
-        {
-            case sf::Keyboard::Key::D:
-                _player_controller.move_right();
-                break;
+        case sf::Event::KeyPressed:
+            debug_print("%d", int(e.key.code));
+            switch(e.key.code)
+            {
+                case sf::Keyboard::Key::W:
+                    _player_controller.move_up();
+                    break;   
 
-            case sf::Keyboard::Key::A:
-                _player_controller.move_left();
-                break;    
-        }
-    }
+                case sf::Keyboard::Key::S:
+                    _player_controller.move_down();
+                    break;   
 
-    if( e.type == sf::Event::KeyReleased )
-    {
-        debug_print("%d", int(e.key.code));
-        switch(e.key.code)
-        {
-            case sf::Keyboard::Key::D:
-                _player_controller.stop_movement_horizontally();
-                break;
+                case sf::Keyboard::Key::D:
+                    _player_controller.move_right();
+                    break;
 
-            case sf::Keyboard::Key::A:
-                _player_controller.stop_movement_horizontally();
-                break;    
-        }
+                case sf::Keyboard::Key::A:
+                    _player_controller.move_left();
+                    break;    
+            }
+            break;
+
+        case sf::Event::KeyReleased:
+            switch(e.key.code)
+            {
+                case sf::Keyboard::Key::W:  
+                case sf::Keyboard::Key::S:
+                    _player_controller.stop_movement_vertically();
+                    break;   
+
+                case sf::Keyboard::Key::D:
+                case sf::Keyboard::Key::A:
+                    _player_controller.stop_movement_horizontally();
+                    break;    
+            }
+            break;
     }
 }

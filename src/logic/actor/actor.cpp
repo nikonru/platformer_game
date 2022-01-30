@@ -1,5 +1,8 @@
 #include "actor.h"
 
+#define DEBUG
+#include "util.h"
+
 Actor::Actor() 
 {
     _x = 100;
@@ -12,6 +15,18 @@ Actor::Actor()
     sprite.setPosition(sf::Vector2f(_x, _y));
     sprite.setSize(sf::Vector2f(10, 20)); // TODO: use define or constexpr
     //todo
+    _collision_rectangle.setPosition(sf::Vector2f(_x, _y));
+    _collision_rectangle.setSize(sf::Vector2f(10, 20));
+}
+
+void Actor::on_collision( Actor& actor)
+{
+
+}
+
+void Actor::on_collision( Static_actor& actor)
+{
+    debug_print("collide\n");
 }
 
 sf::RectangleShape Actor::get_sprite() 
@@ -105,7 +120,13 @@ float Actor::get_acceleration_y()
     return _acceleration_y;
 }
 
+sf::RectangleShape Actor::get_collision()
+{
+    return _collision_rectangle;
+}
+
 void Actor::update_sprite()
 {
     sprite.setPosition(sf::Vector2f(_x, _y));
+    _collision_rectangle.setPosition(sf::Vector2f(_x, _y));
 }

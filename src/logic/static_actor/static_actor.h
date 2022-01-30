@@ -1,14 +1,23 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
 #include <vector>
 #include <memory>
 
 class Static_actor
 {
+    //TODO Derive from common base class with with actor
 public:
-    int x, y;
-private:
+    Static_actor();
 
+    float _x, _y;
+
+    sf::RectangleShape get_collision();
+    sf::RectangleShape get_sprite();
+
+private:
+    sf::RectangleShape _collision_rectangle;
+    sf::RectangleShape sprite;
 };
 
 struct Static_actors_vector

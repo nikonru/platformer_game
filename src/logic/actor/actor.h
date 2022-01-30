@@ -4,12 +4,16 @@
 #include <memory>
 #include <vector>
 
+#include "static_actor.h"
+
 class Actor
 {
+    //TODO Derive from common base class with with static_actor
 public:
     Actor();
 
-    void on_collision();
+    void on_collision( Actor& actor);
+    void on_collision( Static_actor& actor);
     sf::RectangleShape get_sprite();
     
     void set_x(float x);
@@ -39,6 +43,8 @@ public:
     float get_acceleration_x();
     float get_acceleration_y();
 
+    sf::RectangleShape get_collision();
+
 private:
     
     void update_sprite();
@@ -50,6 +56,7 @@ private:
 
     sf::RectangleShape sprite;
 
+    sf::RectangleShape _collision_rectangle;
 };
 
 struct Actors_vector

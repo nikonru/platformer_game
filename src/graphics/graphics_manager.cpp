@@ -32,9 +32,13 @@ void Graphics_manager::main_loop() {
         _manager->update();
 
         auto actors = _manager->get_actors();
+        auto static_actors = _manager->get_static_actors();
 
         _main_window->clear(sf::Color(66, 145, 255)); //light blue
         for (auto& a: actors->vector)
+             _main_window->draw(a->get_sprite());
+             
+        for (auto& a: static_actors->vector)
              _main_window->draw(a->get_sprite());
         _main_window->display();  
     }
