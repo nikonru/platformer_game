@@ -25,16 +25,19 @@ void Input_manager::keyboard_callback(sf::Event e) {
     } 
 }
 
-void Input_manager::on_keyboard_event( sf::Event e )
+void Input_manager::on_event( sf::Event e )
 {
     notify_observers( e );
 }
 
 void Input_manager::notify_observers( sf::Event e )
 {
-    for( auto observer: _observers )
+    if ( e.type == sf::Event::KeyPressed || e.type == sf::Event::KeyReleased )
     {
-        observer->on_keyboard_event( e );
+        for( auto observer: _observers )
+        {
+            observer->on_keyboard_event( e );
+        }
     }
 }
 

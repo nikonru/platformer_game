@@ -47,7 +47,7 @@ public:
      */
     bool get_button(Input_button button);
 
-    void on_keyboard_event( sf::Event e );
+    void on_event( sf::Event e );
 
     void add_observer( std::shared_ptr<Input_manager_observer> observer );
 };

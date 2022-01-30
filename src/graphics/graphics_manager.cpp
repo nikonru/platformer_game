@@ -45,7 +45,7 @@ void Graphics_manager::processing_events() {
 
     while (_main_window->pollEvent(event)) {
 
-        _input_manager.on_keyboard_event( event );
+        _input_manager.on_event( event );
 
         if (event.type == sf::Event::Closed) {
             _main_window->close();
