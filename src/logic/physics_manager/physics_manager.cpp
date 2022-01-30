@@ -13,7 +13,7 @@ void Physics_manager::update( const std::shared_ptr<Actors_vector>& actors, cons
       actor->add_speed_x( actor->get_acceleration_x() * delta_time_s );
       actor->add_speed_y( actor->get_acceleration_y() * delta_time_s );
        
-      const float g = 45;
+      const float g = 0;//45;
 
       actor->add_speed_y( g * delta_time_s );
    }

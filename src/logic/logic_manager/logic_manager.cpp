@@ -42,4 +42,35 @@ shared_ptr<Static_actors_vector> Logic_manager::get_static_actors()
 void Logic_manager::on_keyboard_event( sf::Event e )
 {
     debug_print("log\n");
+
+
+    if( e.type == sf::Event::KeyPressed )
+    {
+        debug_print("%d", int(e.key.code));
+        switch(e.key.code)
+        {
+            case sf::Keyboard::Key::D:
+                _player_controller.move_right();
+                break;
+
+            case sf::Keyboard::Key::A:
+                _player_controller.move_left();
+                break;    
+        }
+    }
+
+    if( e.type == sf::Event::KeyReleased )
+    {
+        debug_print("%d", int(e.key.code));
+        switch(e.key.code)
+        {
+            case sf::Keyboard::Key::D:
+                _player_controller.stop_movement_horizontally();
+                break;
+
+            case sf::Keyboard::Key::A:
+                _player_controller.stop_movement_horizontally();
+                break;    
+        }
+    }
 }

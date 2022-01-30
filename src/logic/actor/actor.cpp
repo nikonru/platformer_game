@@ -4,8 +4,8 @@ Actor::Actor()
 {
     _x = 100;
     _y = 100;
-    _speed_x = 5;
-    _acceleration_x = 56;
+    _speed_x = 0;
+    _acceleration_x = 0;
     _speed_y  = _acceleration_y = 0;
 
     sprite.setFillColor(sf::Color::Green);
