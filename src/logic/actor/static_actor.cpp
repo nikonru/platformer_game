@@ -12,13 +12,3 @@ Static_actor::Static_actor()
     _collision_rectangle.setPosition(sf::Vector2f(_x, _y));
     _collision_rectangle.setSize(sf::Vector2f(10, 20));
 }
-
-sf::RectangleShape Static_actor::get_collision()
-{
-    return _collision_rectangle;
-}
-
-sf::RectangleShape Static_actor::get_sprite()
-{
-    return sprite;
-}

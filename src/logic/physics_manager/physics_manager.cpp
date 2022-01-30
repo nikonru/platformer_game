@@ -67,7 +67,7 @@ void Physics_manager::update( const std::shared_ptr<Actors_vector>& actors, cons
    }
 }
 
-bool Physics_manager::check_collision( Actor& actor, Static_actor& static_actor  )
+bool Physics_manager::check_collision( Dynamic_actor& actor, Static_actor& static_actor  )
 {
    auto collsion_a = actor.get_collision();
    auto collsion_b = static_actor.get_collision();

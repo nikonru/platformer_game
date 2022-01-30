@@ -12,7 +12,7 @@ Logic_manager::Logic_manager()
     _actors = make_shared<Actors_vector>();
     _static_actors = make_shared<Static_actors_vector>();
 
-    auto player = make_shared<Actor>();
+    auto player = make_shared<Dynamic_actor>();
     _player_controller.attach_to_actor( player );
 
     auto block = make_shared<Static_actor>();

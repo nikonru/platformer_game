@@ -8,7 +8,7 @@
 
 #include "physics_manager.h"
 #include "static_actor.h"
-#include "actor.h"
+#include "dynamic_actor.h"
 #include "controller.h"
 #include "input_manager_observer.h"
 
@@ -28,7 +28,7 @@ private:
 
     std::vector<std::shared_ptr<Controller>> _controllers;
     Controller _player_controller;
-    std::shared_ptr<Actor> _player_actor;
+    std::shared_ptr<Dynamic_actor> _player_actor;
     
     std::shared_ptr<Actors_vector> _actors;
     std::shared_ptr<Static_actors_vector> _static_actors;
