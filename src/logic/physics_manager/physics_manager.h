@@ -11,5 +11,8 @@ public:
     void update( const std::shared_ptr<Actors_vector>& actors, const std::shared_ptr<Static_actors_vector>& static_actors, int64_t delta_time );
 
 private:
-    bool check_collision( Dynamic_actor& actor, Static_actor& static_actor  );
+    bool check_rectangle_collision( float a_x, float a_y, float a_width, float a_height, float b_x, float b_y, float b_width, float b_height  );
+    bool check_collision( Actor& actor, Actor& static_actor );
+    bool check_expected_collision_by_x( Actor& actor, Actor& static_actor, float delta_x  );
+    bool check_expected_collision_by_y( Actor& actor, Actor& static_actor, float delta_y  );
 };

@@ -66,21 +66,25 @@ void Logic_manager::on_keyboard_event( sf::Event e )
 
                 case sf::Keyboard::Key::A:
                     _player_controller.move_left();
-                    break;    
+                    break;
             }
             break;
 
         case sf::Event::KeyReleased:
             switch(e.key.code)
             {
-                case sf::Keyboard::Key::W:  
+                // case sf::Keyboard::Key::W:  
+                //     _player_controller.stop_movement_up();
+                //     break;   
                 case sf::Keyboard::Key::S:
-                    _player_controller.stop_movement_vertically();
+                    _player_controller.stop_movement_down();
                     break;   
 
                 case sf::Keyboard::Key::D:
+                    _player_controller.stop_movement_right();
+                    break; 
                 case sf::Keyboard::Key::A:
-                    _player_controller.stop_movement_horizontally();
+                    _player_controller.stop_movement_left();
                     break;    
             }
             break;

@@ -14,8 +14,14 @@ public:
    void move_down();
    //TODO how to implement set position and  check of coordinates at the same time
 
-   void stop_movement_horizontally();
-   void stop_movement_vertically();
+   void stop_movement_right();
+   void stop_movement_left();
+   void stop_movement_up();
+   void stop_movement_down();
 private:
    std::shared_ptr<Dynamic_actor> _actor;
+
+   float _speed_x = 30;
+   float _speed_y = 180;
+
 };

@@ -16,6 +16,7 @@ Graphics_manager::Graphics_manager() {
 void Graphics_manager::main_loop() {
     _main_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(400, 400), "Game!");
     _main_window->setFramerateLimit(120);
+    _main_window->setKeyRepeatEnabled( false );
 
     sf::Clock clock;
     int frame_counter = 0;
