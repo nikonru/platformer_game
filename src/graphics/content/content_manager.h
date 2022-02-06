@@ -11,6 +11,7 @@ class content_manager {
 public:
     enum type {
         PLAYER = 0,
+        TILE_BOX,
         COUNT = 1
     };
 
