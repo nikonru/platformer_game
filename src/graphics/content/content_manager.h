@@ -2,22 +2,23 @@
 
 #include <SFML/Graphics.hpp>
 
+struct Texture_data {
+    sf::Texture &texture;
+    sf::IntRect rect;
+};
+
 class content_manager {
 public:
-    enum texture_type {
-        PLAYER_TEXTURE = 0,
-        TEXTURE_TYPE_CONUT = 1
+    enum type {
+        PLAYER = 0,
+        COUNT = 1
     };
 
-    enum rect_type {
-        RECT_TYPE_PLAYER,
-        RECT_TYPE_COUNT
-    };
     static void init();
-    static sf::Texture& get_texture(enum texture_type type);
-    static sf::IntRect& get_texture_rect(enum rect_type type);
 
-    static sf::Texture textures[TEXTURE_TYPE_CONUT];
+    Texture_data get_texture_data(enum type type);
+
 private:
-    static sf::IntRect texture_rect[RECT_TYPE_COUNT];
+    static sf::Texture textures[COUNT];
+    static sf::IntRect texture_rect[COUNT];
 };

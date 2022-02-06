@@ -13,8 +13,8 @@ Dynamic_actor::Dynamic_actor( float x, float y, float speed_x, float speed_y, sf
 {
 
     _sprite.setPosition(sf::Vector2f(_x, _y));
-    _sprite.setTexture(content_manager::get_texture(content_manager::PLAYER_TEXTURE));
-    _sprite.setTextureRect(content_manager::get_texture_rect(content_manager::RECT_TYPE_PLAYER));
+    //_sprite.setTexture(content_manager::get_texture(content_manager::PLAYER_TEXTURE));
+    //_sprite.setTextureRect(content_manager::get_texture_rect(content_manager::RECT_TYPE_PLAYER));
     //_sprite.
     //_sprite.setScale(sf::Vector2f(10,10));
     //todo
