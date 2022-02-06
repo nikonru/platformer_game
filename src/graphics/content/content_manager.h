@@ -12,12 +12,12 @@ public:
     enum type {
         PLAYER = 0,
         TILE_BOX,
-        COUNT = 1
+        COUNT
     };
 
     static void init();
 
-    Texture_data get_texture_data(enum type type);
+    static Texture_data get_texture_data(enum type type);
 
 private:
     static sf::Texture textures[COUNT];

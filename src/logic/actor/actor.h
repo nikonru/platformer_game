@@ -1,16 +1,18 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <content_manager.h>
+
 
 class Actor
 {
 public:
-    Actor( float x, float y, sf::Sprite sprite, sf::RectangleShape collision );
+    Actor( float x, float y, Texture_data sprite, sf::FloatRect collision );
     sf::Sprite get_sprite();
-    sf::RectangleShape get_collision();
+    sf::FloatRect get_collision();
     void on_collision( Actor& actor );
 protected:
     float _x, _y;
     sf::Sprite _sprite;
-    sf::RectangleShape _collision_rectangle;
+    sf::FloatRect _collision_rectangle;
 };

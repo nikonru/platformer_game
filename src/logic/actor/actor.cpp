@@ -1,15 +1,19 @@
 #include "actor.h"
 
-Actor::Actor( float x, float y, sf::Sprite sprite, sf::RectangleShape collision )
+Actor::Actor( float x, float y, Texture_data sprite, sf::FloatRect collision )
 : _x( x )
 , _y ( y )
-, _sprite( sprite )
 , _collision_rectangle( collision )
 {
     _sprite.setPosition(sf::Vector2f(_x, _y));
+
+    _sprite.setTexture( sprite.texture );
+    _sprite.setTextureRect( sprite.rect );
      
-    _collision_rectangle.setPosition(sf::Vector2f(_x, _y));
-    _collision_rectangle.setSize(sf::Vector2f(50, 50));
+    _collision_rectangle.left = _x;
+    _collision_rectangle.top = _y;
+    _collision_rectangle.width = static_cast<float>( sprite.rect.width );
+    _collision_rectangle.height = static_cast<float>( sprite.rect.height );
 }
 
 sf::Sprite Actor::get_sprite() 
@@ -17,7 +21,7 @@ sf::Sprite Actor::get_sprite()
     return _sprite;
 }
 
-sf::RectangleShape Actor::get_collision()
+sf::FloatRect Actor::get_collision()
 {
     return _collision_rectangle;
 }

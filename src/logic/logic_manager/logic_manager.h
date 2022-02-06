@@ -11,6 +11,7 @@
 #include "dynamic_actor.h"
 #include "controller.h"
 #include "input_manager_observer.h"
+#include <content_manager.h>
 
 class Logic_manager : public Input_manager_observer
 {

@@ -4,7 +4,7 @@
 #define DEBUG
 #include "util.h"
 
-Dynamic_actor::Dynamic_actor( float x, float y, float speed_x, float speed_y, sf::Sprite sprite, sf::RectangleShape collision )
+Dynamic_actor::Dynamic_actor( float x, float y, float speed_x, float speed_y, Texture_data sprite, sf::FloatRect collision )
 : Actor( x, y, sprite, collision )
 , _speed_x( speed_x )
 , _speed_y( speed_y )
@@ -117,5 +117,6 @@ float Dynamic_actor::get_acceleration_y()
 void Dynamic_actor::update_sprite()
 {
     _sprite.setPosition(sf::Vector2f(_x, _y));
-    _collision_rectangle.setPosition(sf::Vector2f(_x, _y));
+    _collision_rectangle.top = _y;
+    _collision_rectangle.left = _x;
 }
