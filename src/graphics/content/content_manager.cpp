@@ -7,10 +7,7 @@ sf::Texture content_manager::textures[COUNT] = {};
 sf::IntRect content_manager::texture_rect[COUNT] = {};
 
 Texture_data content_manager::get_texture_data(enum type type) {
-    Texture_data td = {
-        .texture = textures[type],
-        .rect = texture_rect[type] 
-    };
+    Texture_data td = { textures[type], texture_rect[type] };
     return td;
 }
 
