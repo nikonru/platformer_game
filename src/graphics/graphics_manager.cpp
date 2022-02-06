@@ -8,11 +8,10 @@
 #include <memory>
 
 Graphics_manager::Graphics_manager() {
-
+    content_manager::init();
     _manager = std::make_shared<Logic_manager>();
 
     _input_manager.add_observer( _manager );
-    content_manager::init();
 }
 
 void Graphics_manager::main_loop() {

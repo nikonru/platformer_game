@@ -17,8 +17,9 @@ Dynamic_actor::Dynamic_actor( float x, float y, float speed_x, float speed_y, sf
     _sprite.setPosition(sf::Vector2f(_x, _y));
     //sprite.setScale(sf::Vector2f(10, 20));
     //sprite.
-    //sprite.setTexture(t);
-    _sprite.setTexture(content_manager::textures[content_manager::PLAYER_TEXTURE]);
+    // content_manager::textures[0].loadFromFile("/home/slava/project/platformer_game/build/bin/player.png");
+    _sprite.setTexture(content_manager::get_texture(content_manager::PLAYER_TEXTURE));
+    //_sprite.setTexture(content_manager::textures[content_manager::PLAYER_TEXTURE]);
    // sprite.setTextureRect(sf::IntRect(0,0,100,200));
     //todo
 }
