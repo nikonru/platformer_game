@@ -10,7 +10,7 @@
 class Dynamic_actor : public Actor
 {
 public:
-    Dynamic_actor( float x, float y, float speed_x, float speed_y, sf::RectangleShape sprite, sf::RectangleShape collision );
+    Dynamic_actor( float x, float y, float speed_x, float speed_y, sf::Sprite sprite, sf::RectangleShape collision );
 
     void on_collision( Actor& actor );
     

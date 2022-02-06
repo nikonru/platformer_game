@@ -12,13 +12,13 @@ Logic_manager::Logic_manager()
     _actors = make_shared<Actors_vector>();
     _static_actors = make_shared<Static_actors_vector>();
 
-    sf::RectangleShape player_sprite;
+    sf::Sprite player_sprite;
     sf::RectangleShape player_collision;
 
     auto player = make_shared<Dynamic_actor>( 90.f, 0.f, 0.f, 0.f, player_sprite, player_collision );
     _player_controller.attach_to_actor( player );
 
-    sf::RectangleShape block_sprite;
+    sf::Sprite block_sprite;
     sf::RectangleShape block_collision;
 
     auto block = make_shared<Static_actor>( 90.f, 120.f, block_sprite, block_collision );

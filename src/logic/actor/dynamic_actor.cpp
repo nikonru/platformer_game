@@ -1,15 +1,27 @@
 #include "dynamic_actor.h"
+#include "content_manager.h"
 
 #define DEBUG
 #include "util.h"
 
-Dynamic_actor::Dynamic_actor( float x, float y, float speed_x, float speed_y, sf::RectangleShape sprite, sf::RectangleShape collision )
+Dynamic_actor::Dynamic_actor( float x, float y, float speed_x, float speed_y, sf::Sprite sprite, sf::RectangleShape collision )
 : Actor( x, y, sprite, collision )
 , _speed_x( speed_x )
 , _speed_y( speed_y )
 , _acceleration_x( 0 )
 , _acceleration_y( 0 )
-{}
+{
+ static sf::Texture t;
+    t.loadFromFile("/home/slava/project/platformer_game/build/bin/player.png");
+    
+    _sprite.setPosition(sf::Vector2f(_x, _y));
+    //sprite.setScale(sf::Vector2f(10, 20));
+    //sprite.
+    //sprite.setTexture(t);
+    _sprite.setTexture(content_manager::textures[content_manager::PLAYER_TEXTURE]);
+   // sprite.setTextureRect(sf::IntRect(0,0,100,200));
+    //todo
+}
 
 void Dynamic_actor::on_collision( Actor& actor)
 {

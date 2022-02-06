@@ -4,6 +4,8 @@ project(game VERSION 0.1.0)
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
 set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
+file(COPY content DESTINATION ${CMAKE_BINARY_DIR}/bin/)
+
 include_directories ( src/logic/actor )
 include_directories ( src/logic/controller )
 include_directories ( src/logic/game_clock )
@@ -13,6 +15,7 @@ include_directories ( src/util )
 include_directories ( src/input_manager )
 
 include_directories ( src/graphics )
+include_directories ( src/graphics/content )
 
 add_subdirectory ("3rdparty/sfml")
 
@@ -25,6 +28,7 @@ list ( APPEND SRC src/logic/game_clock/game_clock.cpp )
 list ( APPEND SRC src/logic/logic_manager/logic_manager.cpp )
 list ( APPEND SRC src/logic/physics_manager/physics_manager.cpp )
 list ( APPEND SRC src/graphics/graphics_manager.cpp )
+list ( APPEND SRC src/graphics/content/content_manager.cpp )
 list ( APPEND SRC src/input_manager/input_manager_observer.cpp )
 list ( APPEND SRC src/input_manager/input_manager.cpp )
 

@@ -9,7 +9,7 @@
 class Static_actor : public Actor
 {
 public:
-    Static_actor( float x, float y, sf::RectangleShape sprite, sf::RectangleShape collision );
+    Static_actor( float x, float y, sf::Sprite sprite, sf::RectangleShape collision );
 };
 
 struct Static_actors_vector
