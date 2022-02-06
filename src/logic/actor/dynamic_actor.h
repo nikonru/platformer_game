@@ -10,7 +10,7 @@
 class Dynamic_actor : public Actor
 {
 public:
-    Dynamic_actor();
+    Dynamic_actor( float x, float y, float speed_x, float speed_y, sf::RectangleShape sprite, sf::RectangleShape collision );
 
     void on_collision( Actor& actor );
     
@@ -32,8 +32,8 @@ public:
     void add_acceleration_x(float x);
     void add_acceleration_y(float y);
 
-    int get_x();
-    int get_y();
+    float get_x();
+    float get_y();
 
     float get_speed_x();
     float get_speed_y();
