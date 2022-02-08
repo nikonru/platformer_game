@@ -1,3 +1,5 @@
+#pragma once
+
 #include "dynamic_actor.h"
 
 class Player_actor : public Dynamic_actor
