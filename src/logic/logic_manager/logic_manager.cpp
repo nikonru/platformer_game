@@ -1,5 +1,7 @@
 #include "logic_manager.h"
 
+#include "world_generator.h"
+
 #define DEBUG
 #include "util.h"
 
@@ -12,19 +14,10 @@ Logic_manager::Logic_manager()
     _actors = make_shared<Actors_vector>();
     _static_actors = make_shared<Static_actors_vector>();
 
-    auto player_sprite = Content_manager::get_texture_data(Content_manager::PLAYER);
-    auto player_pos = sf::Vector2f( 500, 234 );
-    auto player_speed = sf::Vector2f( 0, 0 );
-    sf::FloatRect player_collision;
-
-    auto player = make_shared<Player_actor>( player_pos, player_speed, player_sprite, player_collision );
+    auto player = World_generator::make_player( 90, 0 );
     _player_controller.attach_to_actor( player );
 
-    auto block_sprite = Content_manager::get_texture_data(Content_manager::TILE_BOX);
-    sf::FloatRect block_collision;
-    auto block_pos = sf::Vector2f( 100, 120 );
-
-    auto block = make_shared<Static_actor>( block_pos, block_sprite, block_collision );
+    auto block = World_generator::make_tile_box( 100, 120 );
 
     _actors->vector.push_back( player );
     _static_actors->vector.push_back( block );
