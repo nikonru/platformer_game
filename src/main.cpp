@@ -7,7 +7,7 @@
 int main()
 {
     debug_print("Enter\n");
-    content_manager::init();
+    Content_manager::init();
     // TODO add input manager
     Graphics_manager graphics;
     graphics.main_loop();

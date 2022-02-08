@@ -11,7 +11,6 @@ Dynamic_actor::Dynamic_actor( float x, float y, float speed_x, float speed_y, Te
 , _acceleration_x( 0 )
 , _acceleration_y( 0 )
 {
-
     _sprite.setPosition(sf::Vector2f(_x, _y));
     //_sprite.setTexture(content_manager::get_texture(content_manager::PLAYER_TEXTURE));
     //_sprite.setTextureRect(content_manager::get_texture_rect(content_manager::RECT_TYPE_PLAYER));

@@ -12,13 +12,13 @@ Logic_manager::Logic_manager()
     _actors = make_shared<Actors_vector>();
     _static_actors = make_shared<Static_actors_vector>();
 
-    auto player_sprite = content_manager::get_texture_data(content_manager::PLAYER);
+    auto player_sprite = Content_manager::get_texture_data(Content_manager::PLAYER);
     sf::FloatRect player_collision;
 
     auto player = make_shared<Dynamic_actor>( 90.f, 0.f, 0.f, 0.f, player_sprite, player_collision );
     _player_controller.attach_to_actor( player );
 
-    auto block_sprite = content_manager::get_texture_data(content_manager::TILE_BOX);
+    auto block_sprite = Content_manager::get_texture_data(Content_manager::TILE_BOX);
     sf::FloatRect block_collision;
 
     auto block = make_shared<Static_actor>( 90.f, 120.f, block_sprite, block_collision );

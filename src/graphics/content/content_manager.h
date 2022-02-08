@@ -1,5 +1,6 @@
 #pragma once
 
+#include <array>
 #include <SFML/Graphics.hpp>
 
 struct Texture_data {
@@ -7,7 +8,7 @@ struct Texture_data {
     sf::IntRect rect;
 };
 
-class content_manager {
+class Content_manager {
 public:
     enum type {
         PLAYER = 0,
@@ -20,6 +21,6 @@ public:
     static Texture_data get_texture_data(enum type type);
 
 private:
-    static sf::Texture textures[COUNT];
-    static sf::IntRect texture_rect[COUNT];
+    static std::array<sf::Texture, COUNT> textures;
+    static std::array<sf::IntRect, COUNT> texture_rect;
 };
