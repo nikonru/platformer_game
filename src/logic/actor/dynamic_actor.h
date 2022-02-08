@@ -11,6 +11,7 @@ class Dynamic_actor : public Actor
 {
 public:
     Dynamic_actor( sf::Vector2f position, sf::Vector2f speed, Texture_data sprite, sf::FloatRect collision );
+    Dynamic_actor( sf::Vector2f position, sf::Vector2f speed, Texture_data sprite );
 
     void on_collision( Actor& actor );
     
@@ -49,6 +50,8 @@ protected:
 
     sf::Vector2f _speed;
     sf::Vector2f _acceleration;
+
+    sf::Vector2f _collision_offset;
 };
 
 struct Actors_vector

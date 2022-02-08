@@ -14,13 +14,15 @@ Logic_manager::Logic_manager()
     _actors = make_shared<Actors_vector>();
     _static_actors = make_shared<Static_actors_vector>();
 
-    auto player = World_generator::make_player( 90, 0 );
+    auto world = World_generator::make_world( 228 );
+
+    auto player = World_generator::make_player( world.player_position );
     _player_controller.attach_to_actor( player );
 
     auto block = World_generator::make_tile_box( 100, 120 );
 
     _actors->vector.push_back( player );
-    _static_actors->vector.push_back( block );
+    _static_actors = world.static_actors;
 
     _physics_manager.init_actors( _actors, _static_actors );
 

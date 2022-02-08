@@ -10,6 +10,8 @@ class Actor
 {
 public:
     Actor( sf::Vector2f position, Texture_data sprite, sf::FloatRect collision );
+    Actor( sf::Vector2f position, Texture_data sprite );
+
     sf::Sprite get_sprite();
 
     void on_collision( Actor& actor );

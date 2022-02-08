@@ -8,5 +8,6 @@ private:
     unsigned int _hp = 100;
 public:
     Player_actor( sf::Vector2f position, sf::Vector2f speed, Texture_data sprite, sf::FloatRect collision );
+    Player_actor( sf::Vector2f position, sf::Vector2f speed, Texture_data sprite );
     unsigned int get_hp();
 };
