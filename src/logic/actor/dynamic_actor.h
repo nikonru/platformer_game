@@ -10,7 +10,7 @@
 class Dynamic_actor : public Actor
 {
 public:
-    Dynamic_actor( float x, float y, float speed_x, float speed_y, Texture_data sprite, sf::FloatRect collision );
+    Dynamic_actor( sf::Vector2f position, sf::Vector2f speed, Texture_data sprite, sf::FloatRect collision );
 
     void on_collision( Actor& actor );
     
@@ -45,8 +45,8 @@ private:
     
     void update_sprite();
 
-    float _speed_x, _speed_y;
-    float _acceleration_x, _acceleration_y;
+    sf::Vector2f _speed;
+    sf::Vector2f _acceleration;
 };
 
 struct Actors_vector

@@ -7,12 +7,12 @@
 class Actor
 {
 public:
-    Actor( float x, float y, Texture_data sprite, sf::FloatRect collision );
+    Actor( sf::Vector2f position, Texture_data sprite, sf::FloatRect collision );
     sf::Sprite get_sprite();
     sf::FloatRect get_collision();
     void on_collision( Actor& actor );
 protected:
-    float _x, _y;
+    sf::Vector2f _position;
     sf::Sprite _sprite;
     sf::FloatRect _collision_rectangle;
 };

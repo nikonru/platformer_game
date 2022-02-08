@@ -21,7 +21,5 @@ public:
 private:
    std::shared_ptr<Dynamic_actor> _actor;
 
-   float _speed_x = 30;
-   float _speed_y = 180;
-
+   sf::Vector2f _speed = sf::Vector2f( 30, 180 );
 };

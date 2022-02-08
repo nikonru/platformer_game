@@ -7,40 +7,40 @@ void Controller::attach_to_actor( std::shared_ptr<Dynamic_actor>& actor )
 
 void Controller::move_right()
 {
-    _actor->add_speed_x( _speed_x );       
+    _actor->add_speed_x( _speed.x );       
 }
 
 void Controller::move_left()
 {
-    _actor->add_speed_x( -_speed_x );
+    _actor->add_speed_x( -_speed.x );
 }
 
 void Controller::move_up()
 {
-    _actor->add_speed_y( -_speed_y );       
+    _actor->add_speed_y( -_speed.y );       
 }
 
 void Controller::move_down()
 {
-    _actor->add_speed_y( _speed_y );
+    _actor->add_speed_y( _speed.y );
 }
 
 void Controller::stop_movement_right()
 {
-    _actor->add_speed_x( -_speed_x );
+    _actor->add_speed_x( -_speed.x );
 }
 
 void Controller::stop_movement_left()
 {
-    _actor->add_speed_x( _speed_x );
+    _actor->add_speed_x( _speed.x );
 }
 
 void Controller::stop_movement_up()
 {
-    _actor->add_speed_y( _speed_y );
+    _actor->add_speed_y( _speed.y );
 }
 
 void Controller::stop_movement_down()
 {
-    _actor->add_speed_y( -_speed_y );
+    _actor->add_speed_y( -_speed.y );
 }

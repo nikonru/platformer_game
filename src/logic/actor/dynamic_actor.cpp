@@ -4,20 +4,11 @@
 #define DEBUG
 #include "util.h"
 
-Dynamic_actor::Dynamic_actor( float x, float y, float speed_x, float speed_y, Texture_data sprite, sf::FloatRect collision )
-: Actor( x, y, sprite, collision )
-, _speed_x( speed_x )
-, _speed_y( speed_y )
-, _acceleration_x( 0 )
-, _acceleration_y( 0 )
-{
-    _sprite.setPosition(sf::Vector2f(_x, _y));
-    //_sprite.setTexture(content_manager::get_texture(content_manager::PLAYER_TEXTURE));
-    //_sprite.setTextureRect(content_manager::get_texture_rect(content_manager::RECT_TYPE_PLAYER));
-    //_sprite.
-    //_sprite.setScale(sf::Vector2f(10,10));
-    //todo
-}
+Dynamic_actor::Dynamic_actor( sf::Vector2f position, sf::Vector2f speed, Texture_data sprite, sf::FloatRect collision )
+: Actor( position, sprite, collision )
+, _speed( speed )
+, _acceleration( sf::Vector2f( 0, 0 ) )
+{}
 
 void Dynamic_actor::on_collision( Actor& actor)
 {
@@ -26,96 +17,96 @@ void Dynamic_actor::on_collision( Actor& actor)
 
 void Dynamic_actor::set_x( float x ) 
 {
-    _x = x;
+    _position.x = x;
     update_sprite();
 }
 
 void Dynamic_actor::set_y( float y ) 
 {
-    _y = y;
+    _position.y = y;
     update_sprite();
 }
 
 void Dynamic_actor::move_x(float x) 
 {
-    _x += x;
+    _position.x += x;
     update_sprite();
 }
 
 void Dynamic_actor::move_y(float y) {
-    _y += y;
+    _position.y += y;
     update_sprite();
 }
 
 void Dynamic_actor::set_speed_x(float x)
 {
-    _speed_x = x;
+    _speed.x = x;
 }
 void Dynamic_actor::set_speed_y(float y)
 {
-    _speed_y = y;
+    _speed.y = y;
 }
 
 void Dynamic_actor::set_acceleration_x(float x)
 {
-    _acceleration_x = x;
+    _acceleration.x = x;
 }
 
 void Dynamic_actor::set_acceleration_y(float y)
 {
-    _acceleration_y = y;
+    _acceleration.y = y;
 }
 
 void Dynamic_actor::add_speed_x(float x)
 {
-    _speed_x += x;
+    _speed.x += x;
 }
 
 void Dynamic_actor::add_speed_y(float y)
 {
-    _speed_y += y;
+    _speed.y += y;
 }
 
 void Dynamic_actor::add_acceleration_x(float x)
 {
-    _acceleration_x += x;
+    _acceleration.x += x;
 }
 
 void Dynamic_actor::add_acceleration_y(float y)
 {
-    _acceleration_y += y;
+    _acceleration.y += y;
 }
 
 float Dynamic_actor::get_x()
 {
-    return _x;
+    return _position.x;
 }
 float Dynamic_actor::get_y()
 {
-    return _y;
+    return _position.y;
 }
 
 float Dynamic_actor::get_speed_x()
 {
-    return _speed_x;
+    return _speed.x;
 }
 float Dynamic_actor::get_speed_y()
 {
-    return _speed_y;
+    return _speed.y;
 }
 
 float Dynamic_actor::get_acceleration_x()
 {
-    return _acceleration_x;
+    return _acceleration.x;
 }
 float Dynamic_actor::get_acceleration_y()
 {
-    return _acceleration_y;
+    return _acceleration.y;
 }
 
 void Dynamic_actor::update_sprite()
 {
-    _sprite.setPosition(sf::Vector2f(_x, _y));
-    _collision_rectangle.top = _y;
-    _collision_rectangle.left = _x;
+    _sprite.setPosition( _position );
+    _collision_rectangle.left = _position.x;
+    _collision_rectangle.top = _position.y;
 }

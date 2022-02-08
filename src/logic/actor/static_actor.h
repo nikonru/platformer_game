@@ -9,7 +9,7 @@
 class Static_actor : public Actor
 {
 public:
-    Static_actor( float x, float y, Texture_data sprite, sf::FloatRect collision );
+    Static_actor( sf::Vector2f position, Texture_data sprite, sf::FloatRect collision );
 };
 
 struct Static_actors_vector
