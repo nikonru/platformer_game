@@ -17,7 +17,7 @@ Logic_manager::Logic_manager()
     auto player_speed = sf::Vector2f( 0, 0 );
     sf::FloatRect player_collision;
 
-    auto player = make_shared<Dynamic_actor>( player_pos, player_speed, player_sprite, player_collision );
+    auto player = make_shared<Player_actor>( player_pos, player_speed, player_sprite, player_collision );
     _player_controller.attach_to_actor( player );
 
     auto block_sprite = Content_manager::get_texture_data(Content_manager::TILE_BOX);

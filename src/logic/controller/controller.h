@@ -6,7 +6,8 @@
 class Controller 
 {
 public:
-   void attach_to_actor( std::shared_ptr<Dynamic_actor>& actor );
+
+   void attach_to_actor( std::shared_ptr<Dynamic_actor> actor );
 
    void move_right();
    void move_left();

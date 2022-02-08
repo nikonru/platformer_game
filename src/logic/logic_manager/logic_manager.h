@@ -9,6 +9,7 @@
 #include "physics_manager.h"
 #include "static_actor.h"
 #include "dynamic_actor.h"
+#include "player_actor.h"
 #include "controller.h"
 #include "input_manager_observer.h"
 #include <content_manager.h>

@@ -1,6 +1,6 @@
 #include "controller.h"
 
-void Controller::attach_to_actor( std::shared_ptr<Dynamic_actor>& actor )
+void Controller::attach_to_actor( std::shared_ptr<Dynamic_actor> actor )
 {
     _actor = actor;
 }
