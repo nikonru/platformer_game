@@ -41,6 +41,8 @@ public:
     float get_acceleration_x();
     float get_acceleration_y();
 
+    void update_position();
+
 protected:
     
     void update_sprite();

@@ -18,6 +18,7 @@ include_directories ( src/graphics )
 include_directories ( src/graphics/content )
 
 add_subdirectory ("3rdparty/sfml")
+add_subdirectory ("3rdparty/box2d")
 
 list ( APPEND SRC src/main.cpp )
 list ( APPEND SRC src/logic/actor/actor.cpp )
@@ -35,11 +36,12 @@ list ( APPEND SRC src/input_manager/input_manager.cpp )
 
 
 include_directories ( 3rdparty/sfml/include )
+include_directories ( 3rdparty/box2d/include )
 
 add_compile_options("-lsfml-graphics" "-lsfml-window" "-lsfml-system")
 
 add_executable(game ${SRC})
-target_link_libraries(game sfml-graphics sfml-audio)
+target_link_libraries(game sfml-graphics sfml-audio box2d)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
