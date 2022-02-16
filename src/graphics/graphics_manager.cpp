@@ -10,12 +10,16 @@
 Graphics_manager::Graphics_manager() {
     Content_manager::init();
     _manager = std::make_shared<Logic_manager>();
-
+     Texture_data td = Content_manager::get_texture_data(Content_manager::BACKGROUND);
+    _background.setTexture( td.texture );
+    _background.setTextureRect( td.rect );
     _input_manager.add_observer( _manager );
 }
 
 void Graphics_manager::main_loop() {
-    _main_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(400, 400), "Game!");
+    sf::View mv(sf::FloatRect( sf::Vector2f(0.f, 0.f), sf::Vector2f(1920.f, 1080.f)));
+    _main_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(1080, 720), "Game!");
+    _main_window->setView(mv);
     _main_window->setFramerateLimit(120);
     _main_window->setKeyRepeatEnabled( false );
 
@@ -37,6 +41,9 @@ void Graphics_manager::main_loop() {
         auto static_actors = _manager->get_static_actors();
 
         _main_window->clear(sf::Color(66, 145, 255)); //light blue
+
+        _main_window->draw(_background);
+
         for (auto& a: actors->vector)
             _main_window->draw(a->get_sprite());
 

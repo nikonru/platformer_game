@@ -13,6 +13,7 @@ public:
     enum type {
         PLAYER = 0,
         TILE_BOX,
+        BACKGROUND,
         COUNT
     };
 

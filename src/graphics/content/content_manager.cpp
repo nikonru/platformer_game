@@ -1,5 +1,5 @@
 #include "content_manager.h"
-#include <stdexcept>
+#include <exception>
 
 using namespace std;
 
@@ -18,10 +18,14 @@ Texture_data Content_manager::get_texture_data(enum type type)
 void Content_manager::init() 
 {
     if( !textures[PLAYER].loadFromFile( PATH_TO_TEXTURES+"player.png" ) )
-        throw std::exception("Could not load texture", PLAYER);
+        throw exception();
     texture_rect[PLAYER] = sf::IntRect(sf::Vector2i(0,0), sf::Vector2i(64,108));
 
     if( !textures[TILE_BOX].loadFromFile( PATH_TO_TEXTURES+"texture.png") )
-        throw std::exception("Could not load texture", TILE_BOX);
+        throw exception();
     texture_rect[TILE_BOX] = sf::IntRect(sf::Vector2i(128,128), sf::Vector2i(64,64));
+
+    if( !textures[BACKGROUND].loadFromFile( PATH_TO_TEXTURES+"background.png") )
+        throw exception();
+    texture_rect[BACKGROUND] = sf::IntRect(sf::Vector2i(0,0), sf::Vector2i(1920, 1080));
 }

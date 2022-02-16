@@ -18,6 +18,8 @@ private:
     Input_manager _input_manager;
 
     void processing_events();
+
+    sf::Sprite _background;
 public:
     Graphics_manager();
     void main_loop();
