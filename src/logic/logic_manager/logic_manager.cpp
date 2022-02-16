@@ -29,6 +29,8 @@ Logic_manager::Logic_manager()
     _actors->vector.push_back( player );
     _static_actors->vector.push_back( block );
 
+    _physics_manager.init_actors( _actors, _static_actors );
+
     _clock.start();
 }
 

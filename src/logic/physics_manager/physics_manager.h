@@ -2,7 +2,7 @@
 
 #include "static_actor.h"
 #include "dynamic_actor.h"
-#include <box2d.h>
+#include <box2d/box2d.h>
 #include <memory>
 #include <vector>
 
@@ -15,5 +15,5 @@ public:
 
 private:
     b2Vec2 _gravity = b2Vec2( 0, -10 );
-    b2World _world = b2World( _gravity );
+    b2World* _world = new b2World( _gravity );
 };

@@ -5,7 +5,7 @@ void Physics_manager::update( const std::shared_ptr<Actors_vector>& actors, cons
 
    float delta_time_s = delta_time_us/1'000'000.f;
 
-   _world.Step( delta_time_s, 6, 2 );
+   _world->Step( delta_time_s, 6, 2 );
 
    for( auto& actor: actors->vector )
    {
@@ -17,13 +17,13 @@ void Physics_manager::init_actors( const std::shared_ptr<Actors_vector>& actors,
 {
    for( auto& actor: actors->vector )
    {
-      b2Body* body = _world.CreateBody( &actor->get_body_def() );
+      b2Body* body = _world->CreateBody( &actor->get_body_def() );
       actor->set_body( body );
    }
 
    for( auto& actor: static_actors->vector )
    {
-      b2Body* body = _world.CreateBody( &actor->get_body_def() );
+      b2Body* body = _world->CreateBody( &actor->get_body_def() );
       actor->set_body( body );
    }
 }

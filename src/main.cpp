@@ -6,10 +6,20 @@
 
 int main()
 {
-    debug_print("Enter\n");
-    Content_manager::init();
-    // TODO add input manager
-    Graphics_manager graphics;
-    graphics.main_loop();
+    try
+    {
+        debug_print("Enter\n");
+        Content_manager::init();
+        // TODO add input manager
+        debug_print("pre init\n");
+        Graphics_manager graphics;
+        debug_print("init\n");
+        graphics.main_loop();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
     return 0;
 }
