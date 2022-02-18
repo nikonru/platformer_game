@@ -13,7 +13,7 @@ Logic_manager::Logic_manager()
     _static_actors = make_shared<Static_actors_vector>();
 
     auto player_sprite = Content_manager::get_texture_data(Content_manager::PLAYER);
-    auto player_pos = sf::Vector2f( 90, 0 );
+    auto player_pos = sf::Vector2f( 500, 234 );
     auto player_speed = sf::Vector2f( 0, 0 );
     sf::FloatRect player_collision;
 

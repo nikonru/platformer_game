@@ -2,7 +2,7 @@
 
 Actor::Actor( sf::Vector2f position, Texture_data sprite, sf::FloatRect collision )
 : _position( position )
-, _body( position, collision )
+, _body( _position, collision )
 {
     _sprite.setPosition( _position );
 
