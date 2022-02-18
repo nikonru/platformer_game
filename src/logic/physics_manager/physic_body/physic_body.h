@@ -19,7 +19,7 @@ private:
     b2PolygonShape _shape;
     b2FixtureDef _fixture_def;
 
-    const float pixels_in_meter = 1;
+    const float pixels_in_meter = 100;
     
 private:
     float pixels_to_meters( float pixels );
