@@ -1,24 +1,32 @@
 #include "physic_body.h"
-#include <iostream>
-Physic_body::Physic_body( sf::Vector2f& position, sf::FloatRect& collision )
+
+Physic_body::Physic_body( const sf::FloatRect& collision )
 {
-    _shape.SetAsBox( pixels_to_meters( collision.width/2 ), pixels_to_meters( collision.top/2 ) );
-    // std::cout<<position.x<<std::endl;
-    // std::cout<<pixels_to_meters( collision.width/2 )<<std::endl;
-    //_shape.SetAsBox( 1000,1000 );
-    _body_def.position.Set( pixels_to_meters( position.x ), pixels_to_meters( position.y ) );
-    _body_def.type = b2_dynamicBody;
+    _shape.SetAsBox( pixels_to_meters( collision.width/2 ), pixels_to_meters( collision.height/2 ) );
+    _body_def.position.Set( pixels_to_meters( collision.left ), pixels_to_meters( collision.top ) );
 }
 
 void Physic_body::init( b2World& world )
 {
     _body = world.CreateBody( &_body_def );
     
-    _fixtureDef.shape = &_shape;
-    _fixtureDef.density = 1.0f;
-    _fixtureDef.friction = 0.3f;
+    if( _body_def.type == b2_dynamicBody )
+    {
+        _fixture_def.shape = &_shape;
+        _fixture_def.density = 1.0f;
+        _fixture_def.friction = 0.3f;
 
-    _body->CreateFixture( &_fixtureDef );
+        _body->CreateFixture( &_fixture_def );
+    }
+    else
+    {
+       _body->CreateFixture( &_shape, 0.0f ); 
+    }
+}
+
+void Physic_body::set_as_dynamic()
+{
+    _body_def.type = b2_dynamicBody;
 }
 
 sf::Vector2f Physic_body::get_position()

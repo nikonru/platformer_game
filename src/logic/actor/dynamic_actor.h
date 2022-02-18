@@ -50,8 +50,6 @@ protected:
 
     sf::Vector2f _speed;
     sf::Vector2f _acceleration;
-
-    sf::Vector2f _collision_offset;
 };
 
 struct Actors_vector

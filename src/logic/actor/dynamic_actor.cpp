@@ -11,15 +11,16 @@ Dynamic_actor::Dynamic_actor( sf::Vector2f position, sf::Vector2f speed, Texture
 , _speed( speed )
 , _acceleration( sf::Vector2f( 0, 0 ) )
 {
-    _collision_offset.x = _collision_rectangle.left - _position.x;
-    _collision_offset.y = _collision_rectangle.top - _position.y;
+    _body.set_as_dynamic();
 }
 
 Dynamic_actor::Dynamic_actor( sf::Vector2f position, sf::Vector2f speed, Texture_data sprite )
 : Actor( position, sprite )
 , _speed( speed )
 , _acceleration( sf::Vector2f( 0, 0 ) )
-{}
+{
+    _body.set_as_dynamic();
+}
 
 void Dynamic_actor::on_collision( Actor& actor)
 {
@@ -123,6 +124,4 @@ void Dynamic_actor::update_position()
 void Dynamic_actor::update_sprite()
 {
     _sprite.setPosition( _position );
-    _collision_rectangle.left = _position.x + _collision_offset.x;
-    _collision_rectangle.top = _position.y + _collision_offset.y;
 }

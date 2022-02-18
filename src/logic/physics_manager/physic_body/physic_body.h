@@ -6,9 +6,10 @@
 class Physic_body
 {
 public:
-    Physic_body( sf::Vector2f& position, sf::FloatRect& collision );
+    Physic_body( const sf::FloatRect& collision );
 
     void init( b2World& world );
+    void set_as_dynamic();
 
     sf::Vector2f get_position();
 
@@ -16,9 +17,9 @@ private:
     b2Body* _body;
     b2BodyDef _body_def;
     b2PolygonShape _shape;
-    b2FixtureDef _fixtureDef;
+    b2FixtureDef _fixture_def;
 
-    const float pixels_in_meter = 100;
+    const float pixels_in_meter = 1;
     
 private:
     float pixels_to_meters( float pixels );
