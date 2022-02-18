@@ -14,6 +14,6 @@ public:
     void init_actors( const std::shared_ptr<Actors_vector>& actors, const std::shared_ptr<Static_actors_vector>& static_actors );
 
 private:
-    b2Vec2 _gravity = b2Vec2( 0, -10 );
-    b2World* _world = new b2World( _gravity );
+    b2Vec2 _gravity = b2Vec2( 0, 10 );
+    b2World _world{ _gravity };
 };

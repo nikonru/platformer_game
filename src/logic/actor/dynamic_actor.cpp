@@ -8,9 +8,7 @@ Dynamic_actor::Dynamic_actor( sf::Vector2f position, sf::Vector2f speed, Texture
 : Actor( position, sprite, collision )
 , _speed( speed )
 , _acceleration( sf::Vector2f( 0, 0 ) )
-{
-    _body_def.type = b2_dynamicBody;
-}
+{}
 
 void Dynamic_actor::on_collision( Actor& actor)
 {
@@ -108,12 +106,7 @@ float Dynamic_actor::get_acceleration_y()
 
 void Dynamic_actor::update_position()
 {
-    auto body_position = _body->GetPosition();
-
-    _position.x = body_position.x;
-    _position.y = body_position.y;
-
-    _sprite.setPosition( _position );
+    _sprite.setPosition( _body.get_position() );
 }
 
 void Dynamic_actor::update_sprite()

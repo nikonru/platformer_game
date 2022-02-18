@@ -9,6 +9,7 @@
 
 Graphics_manager::Graphics_manager() {
     Content_manager::init();
+    debug_print("post init\n");
     _manager = std::make_shared<Logic_manager>();
      Texture_data td = Content_manager::get_texture_data(Content_manager::BACKGROUND);
     _background.setTexture( td.texture );
