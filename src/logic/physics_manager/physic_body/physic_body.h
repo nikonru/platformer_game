@@ -30,4 +30,6 @@ private:
 private:
     float pixels_to_meters( float pixels );
     float meters_to_pixels( float meters );
+
+    float _width, _height;
 };

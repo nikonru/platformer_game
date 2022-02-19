@@ -5,7 +5,7 @@ void Physics_manager::update( const std::shared_ptr<Actors_vector>& actors, cons
 
    float delta_time_s = delta_time_us/1'000'000.f;
 
-   _world.Step( delta_time_s, 6, 2 );
+   _world.Step( delta_time_s, 64, 64 );
 
    for( auto& actor: actors->vector )
    {

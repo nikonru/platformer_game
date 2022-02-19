@@ -22,7 +22,7 @@ public:
 private:
    std::shared_ptr<Dynamic_actor> _actor;
 
-   sf::Vector2f _velocity = sf::Vector2f( 30, 180 );
+   sf::Vector2f _velocity = sf::Vector2f( 10, 200 );
 
 private:
    sf::Vector2f get_horizontal_velocity();

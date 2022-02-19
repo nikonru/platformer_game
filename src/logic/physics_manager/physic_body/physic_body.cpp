@@ -2,7 +2,9 @@
 
 Physic_body::Physic_body( const sf::FloatRect& collision )
 {
-    _shape.SetAsBox( pixels_to_meters( collision.width/2 ), pixels_to_meters( collision.height/2 ) );
+    _width = collision.width;
+    _height = collision.height;
+    _shape.SetAsBox( pixels_to_meters( collision.width )/2, pixels_to_meters( collision.height )/2 );
     _body_def.position.Set( pixels_to_meters( collision.left ), pixels_to_meters( collision.top ) );
 }
 
@@ -14,7 +16,7 @@ void Physic_body::init( b2World& world )
     {
         _fixture_def.shape = &_shape;
         _fixture_def.density = 1.0f;
-        _fixture_def.friction = 0.0f;
+        _fixture_def.friction = 1.0f;
 
         _body->CreateFixture( &_fixture_def );
     }
@@ -32,8 +34,8 @@ void Physic_body::set_as_dynamic()
 sf::Vector2f Physic_body::get_position()
 {
     auto body_position = _body->GetPosition();
-    auto x = meters_to_pixels( body_position.x );
-    auto y = meters_to_pixels( body_position.y );
+    auto x = meters_to_pixels( body_position.x ); + _width/2;
+    auto y = meters_to_pixels( body_position.y ) - _height/2;
     return sf::Vector2f( x, y );
 }
 
