@@ -12,6 +12,12 @@ public:
     void set_as_dynamic();
 
     sf::Vector2f get_position();
+    void kick( sf::Vector2f direction );
+
+    sf::Vector2f get_velocity();
+
+    void Physic_body::set_velocity( sf::Vector2f velocity );
+    void Physic_body::set_position( sf::Vector2f position );
 
 private:
     b2Body* _body;

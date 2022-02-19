@@ -9,7 +9,12 @@ void Physics_manager::update( const std::shared_ptr<Actors_vector>& actors, cons
 
    for( auto& actor: actors->vector )
    {
-      actor->update_position();
+      actor->update_sprite();
+   }
+
+   for( auto& actor: static_actors->vector )
+   {
+      actor->update_sprite();
    }
 }
 

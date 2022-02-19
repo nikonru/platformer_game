@@ -14,42 +14,17 @@ public:
     Dynamic_actor( sf::Vector2f position, sf::Vector2f speed, Texture_data sprite );
 
     void on_collision( Actor& actor );
-    
-    void set_x(float x);
-    void set_y(float y);
 
-    void move_x(float x);
-    void move_y(float y);
+    void move( sf::Vector2f direction );
+    void set_velocity( sf::Vector2f velocity );
 
-    void set_speed_x(float x);
-    void set_speed_y(float y);
+    sf::Vector2f get_velocity();
 
-    void set_acceleration_x(float x);
-    void set_acceleration_y(float y);
-
-    void add_speed_y(float y);
-    void add_speed_x(float x);
-
-    void add_acceleration_x(float x);
-    void add_acceleration_y(float y);
-
-    float get_x();
-    float get_y();
-
-    float get_speed_x();
-    float get_speed_y();
-
-    float get_acceleration_x();
-    float get_acceleration_y();
-
-    void update_position();
+    void init_physics( b2World& world );
 
 protected:
-    
-    void update_sprite();
 
-    sf::Vector2f _speed;
-    sf::Vector2f _acceleration;
+    sf::Vector2f _initial_speed;
 };
 
 struct Actors_vector

@@ -15,12 +15,16 @@ public:
    void move_down();
    //TODO how to implement set position and  check of coordinates at the same time
 
-   void stop_movement_right();
-   void stop_movement_left();
-   void stop_movement_up();
-   void stop_movement_down();
+   void stop_movement_right(){};
+   void stop_movement_left(){};
+   void stop_movement_up(){};
+   void stop_movement_down(){};
 private:
    std::shared_ptr<Dynamic_actor> _actor;
 
-   sf::Vector2f _speed = sf::Vector2f( 30, 180 );
+   sf::Vector2f _velocity = sf::Vector2f( 30, 180 );
+
+private:
+   sf::Vector2f get_horizontal_velocity();
+   sf::Vector2f get_vertical_velocity();
 };
