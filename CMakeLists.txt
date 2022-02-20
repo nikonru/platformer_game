@@ -6,6 +6,9 @@ set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
 file(COPY content DESTINATION ${CMAKE_BINARY_DIR}/bin/)
 
+find_package(OpenGL REQUIRED)
+include_directories( ${OPENGL_INCLUDE_DIRS} )
+
 include_directories ( src/logic/actor )
 include_directories ( src/logic/controller )
 include_directories ( src/logic/game_clock )
@@ -23,6 +26,7 @@ add_subdirectory ("3rdparty/sfml")
 add_subdirectory ("3rdparty/box2d")
 
 list ( APPEND SRC src/main.cpp )
+list ( APPEND SRC src/util/b2GLDraw.cpp )
 list ( APPEND SRC src/logic/actor/actor.cpp )
 list ( APPEND SRC src/logic/actor/dynamic_actor.cpp )
 list ( APPEND SRC src/logic/actor/static_actor.cpp )
@@ -41,10 +45,11 @@ list ( APPEND SRC src/input_manager/input_manager.cpp )
 include_directories ( 3rdparty/sfml/include )
 include_directories ( 3rdparty/box2d/include )
 
-add_compile_options("-lsfml-graphics" "-lsfml-window" "-lsfml-system")
-
 add_executable(game ${SRC})
-target_link_libraries(game sfml-graphics sfml-audio box2d)
+
+target_link_libraries(game sfml-graphics sfml-audio sfml-window box2d)
+target_link_libraries(game ${OPENGL_LIBRARIES}) 
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)

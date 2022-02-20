@@ -11,7 +11,7 @@ Graphics_manager::Graphics_manager() {
     Content_manager::init();
     debug_print("post init\n");
     _manager = std::make_shared<Logic_manager>();
-     Texture_data td = Content_manager::get_texture_data(Content_manager::BACKGROUND);
+    Texture_data td = Content_manager::get_texture_data(Content_manager::BACKGROUND);
     _background.setTexture( td.texture );
     _background.setTextureRect( td.rect );
     _input_manager.add_observer( _manager );
@@ -22,7 +22,7 @@ void Graphics_manager::main_loop() {
     _main_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(1080, 720), "Game!");
     _main_window->setView(mv);
     _main_window->setFramerateLimit(120);
-    _main_window->setKeyRepeatEnabled( false );
+    //_main_window->setKeyRepeatEnabled( false );
 
     sf::Clock clock;
     int frame_counter = 0;
@@ -36,21 +36,23 @@ void Graphics_manager::main_loop() {
         }
         frame_counter++;
 
-        _manager->update();
-
         auto actors = _manager->get_actors();
         auto static_actors = _manager->get_static_actors();
+
+        _manager->update();  
 
         _main_window->clear(sf::Color(66, 145, 255)); //light blue
 
         _main_window->draw(_background);
 
+        for (auto& a: static_actors->vector)
+            _main_window->draw(a->get_sprite());
+
         for (auto& a: actors->vector)
             _main_window->draw(a->get_sprite());
 
-        for (auto& a: static_actors->vector)
-             _main_window->draw(a->get_sprite());
-        _main_window->display();  
+        //_manager->debug_update();
+        _main_window->display();
     }
 }
 

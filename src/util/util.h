@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cstdio"
+#include "b2GLDraw.h"
 
 #ifdef DEBUG
 #define DEBUG_MODE 1

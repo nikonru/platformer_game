@@ -48,6 +48,11 @@ shared_ptr<Static_actors_vector> Logic_manager::get_static_actors()
     return _static_actors;
 }
 
+void Logic_manager::debug_update()
+{
+    _physics_manager.debug_draw();
+}
+
 void Logic_manager::on_keyboard_event( sf::Event e )
 {
     debug_print("log\n");

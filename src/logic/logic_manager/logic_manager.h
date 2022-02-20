@@ -24,6 +24,8 @@ public:
 
     void on_keyboard_event( sf::Event e );
 
+    void debug_update();
+
 private:
     Physics_manager _physics_manager;
     Game_clock _clock;

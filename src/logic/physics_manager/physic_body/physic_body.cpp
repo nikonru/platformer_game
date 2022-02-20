@@ -11,7 +11,8 @@ Physic_body::Physic_body( const sf::FloatRect& collision )
 void Physic_body::init( b2World& world )
 {
     _body = world.CreateBody( &_body_def );
-    
+    _body->SetFixedRotation( true );
+
     if( _body_def.type == b2_dynamicBody )
     {
         _fixture_def.shape = &_shape;
@@ -34,7 +35,7 @@ void Physic_body::set_as_dynamic()
 sf::Vector2f Physic_body::get_position()
 {
     auto body_position = _body->GetPosition();
-    auto x = meters_to_pixels( body_position.x ); + _width/2;
+    auto x = meters_to_pixels( body_position.x ) - _width/2;
     auto y = meters_to_pixels( body_position.y ) - _height/2;
     return sf::Vector2f( x, y );
 }
@@ -63,9 +64,10 @@ void Physic_body::set_position( sf::Vector2f position )
 
 void Physic_body::kick( sf::Vector2f direction )
 {
+    auto body_velocity = _body->GetLinearVelocity();
     auto x = pixels_to_meters( direction.x );
-    auto y = pixels_to_meters( direction.y );
-    _body->ApplyLinearImpulseToCenter( b2Vec2( x, y ), true );
+    auto y = pixels_to_meters( direction.y ) + body_velocity.y;
+    _body->SetLinearVelocity( b2Vec2( x, y ) );
 }
 
 float Physic_body::pixels_to_meters( float pixels )
